@@ -24,17 +24,19 @@
 
 from setuptools import setup, find_packages
 
-print(find_packages(exclude=['doc','test']))
+with open('requirements.txt') as f:
+    requirements = f.read().splitlines()
 
 setup(
-    name = 'NSE_Soft',
+    name = 'NSE',
     version = '0.0.1',
     license = 'GPL',
     author = 'Dr. Alexander Schober',
+    install_requires = requirements,
     author_email = 'alex.schober@mac.com',
     description = 'NSE analysis package',
     packages = find_packages(exclude=['doc','test']),
-    package_data = {'NSE_Soft': ['RELEASE-VERSION']},
+    package_data = {'NSE': ['RELEASE-VERSION']},
     classifiers = [
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
